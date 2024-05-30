@@ -43,8 +43,20 @@ function gradeQuiz(candidateAnswers) {
 
 
 
-  let grade;  //TODO 3.2 use this variable to calculate the candidates score.
+  let grade;
+  let count  = 0;  //TODO 3.2 use this variable to calculate the candidates score.
+  for(let i =0; i< questions.length; i++)
+    {
+      let candidateAnswersInLowerCase = candidateAnswers[i].toLowerCase();
+      let correctAnswersInLowerCase = correctAnswers[i].toLowerCase();
 
+      if(candidateAnswersInLowerCase === correctAnswersInLowerCase)
+        {
+          count = count + 1;
+        }
+    }
+
+    grade = (count/questions.length) * 100;
 
   return grade;
 }
